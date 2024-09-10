@@ -19,7 +19,7 @@ logger.info('connecting to mongoDB blogsList...');
 mongoose
   .connect(MONGODB_URI)
   .then(() => {
-    logger.info('connected to MongoDB @:', MONGODB_URI);
+    logger.info('connection successfull');
   })
   .catch((error) => {
     logger.error('error connecting to MongoDB', error.message);
