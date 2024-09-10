@@ -29,15 +29,19 @@ const BlogsList = ({ blogs, incrementLikes, handleBlogDelete, user }) => {
     fontSize: '1.3em',
   };
 
+  if (blogs.length === 0) {
+    return <p>No blogs yet :(</p>; 
+  }
+
   const sortedBlogs = blogs.slice().sort((a, b) => b.likes - a.likes);
   return (
-    <ul className="blogsList">
+    <ul className='blogsList'>
       {sortedBlogs.map((blog) => (
         <li key={blog.id} style={blogStyle}>
-          <h3 style={tittleStyle} data-testid="blogTitle">
+          <h3 style={tittleStyle} data-testid='blogTitle'>
             {blog.title}
             <Toggleable buttonLabel={'view'}>
-              <a href={blog.url} target="_blank" rel="noopener noreferrer">
+              <a href={blog.url} target='_blank' rel='noopener noreferrer'>
                 {blog.url}
               </a>
               <p>by {blog.author}</p>
