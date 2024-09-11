@@ -1,0 +1,17 @@
+name: Pipeline
+'on':
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - synchronize
+jobs:
+  simple_deployment_pipeline:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: test
+        run: echo 'testing...'
