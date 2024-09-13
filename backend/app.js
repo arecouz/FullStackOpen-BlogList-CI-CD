@@ -19,7 +19,7 @@ logger.info('connecting to mongoDB blogsList...');
 mongoose
   .connect(MONGODB_URI)
   .then(() => {
-    logger.info('connected to MongoDB @:', MONGODB_URI);
+    logger.info('connection successfull');
   })
   .catch((error) => {
     logger.error('error connecting to MongoDB', error.message);
@@ -40,7 +40,8 @@ if (process.env.NODE_ENV === 'test') {
   logger.info('port: ', PORT);
   app.use('/api/testing', testingRouter);
 } else {
-  app.use('/', express.static('dist'));
+  logger.info('using dist');
+  app.use(express.static('dist'));
 }
 
 app.use(middleware.unknownEndpoint);

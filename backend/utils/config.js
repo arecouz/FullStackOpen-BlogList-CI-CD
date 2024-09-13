@@ -1,7 +1,6 @@
 import dotenv from 'dotenv';
 import logger from './logger.js';
 
-logger.info('testing logger');
 dotenv.config();
 
 const { PORT, TEST_MONGODB_URI, MONGODB_URI, NODE_ENV, SECRET } = process.env;
