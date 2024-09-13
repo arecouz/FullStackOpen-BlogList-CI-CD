@@ -19,7 +19,7 @@ Ensure you have the following installed:
 
 ### Installation
 
-git clone https://github.com/your-username/bloglist-cicd.git
+git clone https://github.com/arecouz/FullStackOpen-BlogList-CI-CD.git
 cd bloglist-cicd
 npm install
 
