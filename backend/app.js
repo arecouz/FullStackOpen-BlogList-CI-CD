@@ -9,7 +9,7 @@ import usersRouter from './controllers/users.js';
 import loginRouter from './controllers/login.js';
 import testingRouter from './controllers/testing.js';
 
-import * as middleware from './utils/middleware.js'; 
+import * as middleware from './utils/middleware.js';
 import logger from './utils/logger.js';
 import mongoose from 'mongoose';
 
@@ -37,8 +37,11 @@ app.use('/api/users', usersRouter);
 app.use('/api/login', loginRouter);
 
 if (process.env.NODE_ENV === 'test') {
-  logger.info('port: ', PORT); 
+  logger.info('port: ', PORT);
   app.use('/api/testing', testingRouter);
+} else {
+  logger.info('using dist');
+  app.use(express.static('dist'));
 }
 
 app.use(middleware.unknownEndpoint);
